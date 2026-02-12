@@ -54,6 +54,8 @@
     <script src="{{ asset('backend/assets/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('backend/assets/vendor/js/menu.js') }}"></script>
+    
     <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+    
   </body>
 </html>
