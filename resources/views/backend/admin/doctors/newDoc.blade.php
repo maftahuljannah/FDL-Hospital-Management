@@ -31,7 +31,7 @@
 
                 <!-- Name -->
                 <div style="width:48%;">
-                    <label style="font-weight:600;">Doctor Name</label>
+                    <label style="font-weight:600;">Doctor Name <span class="text-danger">*</span></label>
                     <input type="text" name="name" placeholder="Enter name"
                            value="{{ old('name', $editedDoctor->name ?? '') }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
@@ -42,9 +42,9 @@
 
                 <!-- Title -->
                 <div style="width:48%;">
-                    <label style="font-weight:600;">Title</label>
+                    <label style="font-weight:600;">Title <span class="text-danger">*</span></label>
                     <input type="text" name="title" placeholder="Dr., Prof., etc."
-                           value="{{ old('title', $editedDoctor->title ?? '-------------') }}"
+                           value="{{ old('title', $editedDoctor->title ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                     @error('title')
                     <span class="text-danger fw-bold">{{ $message }}</span>
@@ -53,9 +53,9 @@
 
                 <!-- Designation -->
                 <div style="width:100%;">
-                    <label style="font-weight:600;">Designation</label>
+                    <label style="font-weight:600;">Designation </label>
                     <input type="text" name="designation" placeholder="Cardiologist, Surgeon, etc."
-                           value="{{ old('designation', $editedDoctor->designation ?? '-------------') }}"
+                           value="{{ old('designation', $editedDoctor->designation ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                     @error('designation')
                     <span class="text-danger fw-bold">{{ $message }}</span>
@@ -64,7 +64,7 @@
 
                 <!-- Gender -->
                 <div style="width:48%;">
-                    <label style="font-weight:600;">Gender</label>
+                    <label style="font-weight:600;">Gender <span class="text-danger">*</span></label>
                     <select name="gender"
                             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                         <option value="">Select Gender</option>
@@ -79,12 +79,12 @@
 
                 <!-- Status -->
                 <div style="width:48%;">
-                    <label style="font-weight:600;">Status</label>
+                    <label style="font-weight:600;">Status <span class="text-danger">*</span></label>
                     <select name="status"
                             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                         <option value="">Select Status</option>
                         <option value="1" {{ (old('status', $editedDoctor->status ?? '') == 1) ? 'selected' : '' }}>Active</option>
-                        <option value="0" {{ (old('status', $editedDoctor->status ?? '') == 0) ? 'selected' : '' }}>Inactive</option>
+                        <option value="0" {{ (old('status', $editedDoctor->status ?? '') == 0) ? 'selected' : '' }}>On Leave</option>
                     </select>
                     @error('status')
                     <span class="text-danger fw-bold">{{ $message }}</span>
@@ -95,7 +95,7 @@
                 <div style="width:48%;">
                     <label style="font-weight:600;">Joining Date</label>
                     <input type="date" name="joining_date"
-                           value="{{ old('joining_date', $editedDoctor->joining_date ?? '-------------') }}"
+                           value="{{ old('joining_date', $editedDoctor->joining_date ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                     @error('joining_date')
                     <span class="text-danger fw-bold">{{ $message }}</span>
@@ -104,9 +104,9 @@
 
                 <!-- Availability Time -->
                 <div style="width:48%;">
-                    <label style="font-weight:600;">Availability Time</label>
+                    <label style="font-weight:600;">Availability Time <span class="text-danger">*</span></label>
                     <input type="time" name="availability_time"
-                           value="{{ old('availability_time', $editedDoctor->availability_time ?? '-------------') }}"
+                           value="{{ old('availability_time', $editedDoctor->availability_time ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                     @error('availability_time')
                     <span class="text-danger fw-bold">{{ $message }}</span>
@@ -115,9 +115,9 @@
 
                 <!-- Description -->
                 <div style="width:100%;">
-                    <label style="font-weight:600;">Description</label>
+                    <label style="font-weight:600;">Description <span class="text-danger">*</span></label>
                     <textarea name="description" rows="4" placeholder="Write doctor description"
-                              style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">{{ old('description', $editedDoctor->description ?? '-------------') }}</textarea>
+                              style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">{{ old('description', $editedDoctor->description ?? null) }}</textarea>
                     @error('description')
                     <span class="text-danger fw-bold">{{ $message }}</span>
                     @enderror

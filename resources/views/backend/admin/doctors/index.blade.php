@@ -53,7 +53,7 @@
               @if($doctor->status == 1)
                 <span class="badge bg-success text-white px-3 py-2">Active</span>
               @else
-                <span class="badge bg-danger text-white px-3 py-2">Inactive</span>
+                <span class="badge bg-danger text-white px-3 py-2">On Leave</span>
               @endif
             </td>
 

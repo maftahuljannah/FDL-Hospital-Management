@@ -24,4 +24,6 @@ Route::get('/doctor/delete/{id}', [DoctorController::class, 'deleteDoctor'])->na
 
 //Staff
 Route::get('/staff', [StaffController::class, 'staff'])->name('staff');
-Route::get('/staff/addstaff', [StaffController::class, 'addStaff'])->name('staff.addstaff');
+Route::get('/staff/addstaff/{id?}', [StaffController::class, 'addStaff'])->name('staff.addstaff');
+Route::post('/staff/addstaff/store/{id?}', [StaffController::class, 'storeStaff'])->name('staff.store');
+Route::get('/staff/delete/{id}', [StaffController::class, 'deleteStaff'])->name('staff.delete');

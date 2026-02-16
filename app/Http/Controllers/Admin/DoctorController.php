@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class DoctorController extends Controller
 {
     function showDoctor(){
-        $doctors = Doctor::latest()->paginate('10');
+        $doctors = Doctor::latest()->paginate('15');
         return view('backend.admin.doctors.index',compact('doctors'));
         }
         
