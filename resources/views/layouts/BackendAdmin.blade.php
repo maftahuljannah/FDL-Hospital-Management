@@ -38,7 +38,7 @@
     <script src="{{ asset('backend/assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('backend/assets/js/config.js') }}"></script>
 
-    
+    @stack('css')
     
   </head>
 
@@ -260,7 +260,22 @@
     <script src="{{ asset('backend/assets/vendor/js/menu.js') }}"></script>
     <script src="{{ asset('backend/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
     <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
+    <script>
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      </script>
+     @stack('scripts')
 
   </body>
 </html>
