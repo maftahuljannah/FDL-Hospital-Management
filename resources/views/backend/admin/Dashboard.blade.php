@@ -1,5 +1,4 @@
 @extends('layouts.BackendAdmin')
-@section('title', 'Admin Dashboard')
 @section('content')
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -9,7 +8,7 @@
         <div class="d-flex align-items-end row">
           <div class="col-sm-7">
             <div class="card-body">
-              <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+              <h5 class="card-title text-primary">Congratulations {{ auth()->user()->name }}!</h5>
               <p class="mb-4">
                 You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
                 your profile.
@@ -20,9 +19,12 @@
           </div>
           <div class="col-sm-5 text-center text-sm-left">
             <div class="card-body pb-0 px-0 px-md-4">
-              <img src="{{ asset('backend/assets/img/illustrations/man-with-laptop-light.png')}}" height="140"
-                alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png')}}"
-                data-app-light-img="illustrations/man-with-laptop-light.png')}}" />
+              <img
+                src="{{ asset('backend/assets/img/illustrations/man-with-laptop-light.png') }}"
+                height="140"
+                alt="View Badge User"
+                data-app-dark-img="illustrations/man-with-laptop-dark.png') }}"
+                data-app-light-img="illustrations/man-with-laptop-light.png') }}" />
             </div>
           </div>
         </div>
@@ -35,11 +37,18 @@
             <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
                 <div class="avatar flex-shrink-0">
-                  <img src="{{ asset('backend/assets/img/icons/unicons/chart-success.png')}}" alt="chart success"
+                  <img
+                    src="{{ asset('backend/assets/img/icons/unicons/chart-success.png') }}"
+                    alt="chart success"
                     class="rounded" />
                 </div>
                 <div class="dropdown">
-                  <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true"
+                  <button
+                    class="btn p-0"
+                    type="button"
+                    id="cardOpt3"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
                     aria-expanded="false">
                     <i class="bx bx-dots-vertical-rounded"></i>
                   </button>
@@ -60,11 +69,18 @@
             <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
                 <div class="avatar flex-shrink-0">
-                  <img src="{{ asset('backend/assets/img/icons/unicons/wallet-info.png')}}" alt="Credit Card"
+                  <img
+                    src="{{ asset('backend/assets/img/icons/unicons/wallet-info.png') }}"
+                    alt="Credit Card"
                     class="rounded" />
                 </div>
                 <div class="dropdown">
-                  <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true"
+                  <button
+                    class="btn p-0"
+                    type="button"
+                    id="cardOpt6"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
                     aria-expanded="false">
                     <i class="bx bx-dots-vertical-rounded"></i>
                   </button>
@@ -94,8 +110,13 @@
             <div class="card-body">
               <div class="text-center">
                 <div class="dropdown">
-                  <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="growthReportId"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button
+                    class="btn btn-sm btn-outline-primary dropdown-toggle"
+                    type="button"
+                    id="growthReportId"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
                     2022
                   </button>
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
@@ -141,11 +162,15 @@
             <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
                 <div class="avatar flex-shrink-0">
-                  <img src="{{ asset('backend/assets/img/icons/unicons/paypal.png')}}" alt="Credit Card"
-                    class="rounded" />
+                  <img src="{{ asset('backend/assets/img/icons/unicons/paypal.png') }}" alt="Credit Card" class="rounded" />
                 </div>
                 <div class="dropdown">
-                  <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown" aria-haspopup="true"
+                  <button
+                    class="btn p-0"
+                    type="button"
+                    id="cardOpt4"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
                     aria-expanded="false">
                     <i class="bx bx-dots-vertical-rounded"></i>
                   </button>
@@ -166,11 +191,15 @@
             <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
                 <div class="avatar flex-shrink-0">
-                  <img src="{{ asset('backend/assets/img/icons/unicons/cc-primary.png')}}" alt="Credit Card"
-                    class="rounded" />
+                  <img src="{{ asset('backend/assets/img/icons/unicons/cc-primary.png') }}" alt="Credit Card" class="rounded" />
                 </div>
                 <div class="dropdown">
-                  <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown" aria-haspopup="true"
+                  <button
+                    class="btn p-0"
+                    type="button"
+                    id="cardOpt1"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
                     aria-expanded="false">
                     <i class="bx bx-dots-vertical-rounded"></i>
                   </button>
@@ -220,7 +249,12 @@
             <small class="text-muted">42.82k Total Sales</small>
           </div>
           <div class="dropdown">
-            <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true"
+            <button
+              class="btn p-0"
+              type="button"
+              id="orederStatistics"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
               aria-expanded="false">
               <i class="bx bx-dots-vertical-rounded"></i>
             </button>
@@ -308,8 +342,13 @@
         <div class="card-header">
           <ul class="nav nav-pills" role="tablist">
             <li class="nav-item">
-              <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income"
+              <button
+                type="button"
+                class="nav-link active"
+                role="tab"
+                data-bs-toggle="tab"
+                data-bs-target="#navs-tabs-line-card-income"
+                aria-controls="navs-tabs-line-card-income"
                 aria-selected="true">
                 Income
               </button>
@@ -327,7 +366,7 @@
             <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
               <div class="d-flex p-4 pt-3">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="{{ asset('backend/assets/img/icons/unicons/wallet.png')}}" alt="User" />
+                  <img src="{{ asset('backend/assets/img/icons/unicons/wallet.png') }}" alt="User" />
                 </div>
                 <div>
                   <small class="text-muted d-block">Total Balance</small>
@@ -363,7 +402,12 @@
         <div class="card-header d-flex align-items-center justify-content-between">
           <h5 class="card-title m-0 me-2">Transactions</h5>
           <div class="dropdown">
-            <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true"
+            <button
+              class="btn p-0"
+              type="button"
+              id="transactionID"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
               aria-expanded="false">
               <i class="bx bx-dots-vertical-rounded"></i>
             </button>
@@ -378,7 +422,7 @@
           <ul class="p-0 m-0">
             <li class="d-flex mb-4 pb-1">
               <div class="avatar flex-shrink-0 me-3">
-                <img src="{{ asset('backend/assets/img/icons/unicons/paypal.png')}}" alt="User" class="rounded" />
+                <img src="{{ asset('backend/assets/img/icons/unicons/paypal.png') }}" alt="User" class="rounded" />
               </div>
               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                 <div class="me-2">
@@ -393,7 +437,7 @@
             </li>
             <li class="d-flex mb-4 pb-1">
               <div class="avatar flex-shrink-0 me-3">
-                <img src="{{ asset('backend/assets/img/icons/unicons/wallet.png')}}" alt="User" class="rounded" />
+                <img src="{{ asset('backend/assets/img/icons/unicons/wallet.png') }}" alt="User" class="rounded" />
               </div>
               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                 <div class="me-2">
@@ -408,7 +452,7 @@
             </li>
             <li class="d-flex mb-4 pb-1">
               <div class="avatar flex-shrink-0 me-3">
-                <img src="{{ asset('backend/assets/img/icons/unicons/chart.png')}}" alt="User" class="rounded" />
+                <img src="{{ asset('backend/assets/img/icons/unicons/chart.png') }}" alt="User" class="rounded" />
               </div>
               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                 <div class="me-2">
@@ -423,7 +467,7 @@
             </li>
             <li class="d-flex mb-4 pb-1">
               <div class="avatar flex-shrink-0 me-3">
-                <img src="{{ asset('backend/assets/img/icons/unicons/cc-success.png')}}" alt="User" class="rounded" />
+                <img src="{{ asset('backend/assets/img/icons/unicons/cc-success.png') }}" alt="User" class="rounded" />
               </div>
               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                 <div class="me-2">
@@ -438,7 +482,7 @@
             </li>
             <li class="d-flex mb-4 pb-1">
               <div class="avatar flex-shrink-0 me-3">
-                <img src="{{ asset('backend/assets/img/icons/unicons/wallet.png')}}" alt="User" class="rounded" />
+                <img src="{{ asset('backend/assets/img/icons/unicons/wallet.png') }}" alt="User" class="rounded" />
               </div>
               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                 <div class="me-2">
@@ -453,7 +497,7 @@
             </li>
             <li class="d-flex">
               <div class="avatar flex-shrink-0 me-3">
-                <img src="{{ asset('backend/assets/img/icons/unicons/cc-warning.png')}}" alt="User" class="rounded" />
+                <img src="{{ asset('backend/assets/img/icons/unicons/cc-warning.png') }}" alt="User" class="rounded" />
               </div>
               <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                 <div class="me-2">
