@@ -14,7 +14,7 @@ class DepartmentController extends Controller
         $departments = Department::latest()->paginate('15');
         return view('backend.admin.department.index', compact('departments', 'editedDepartment'));
     }
-    function storeDepartment(Request $request, $id = null)
+    function store(Request $request, $id = null)
     {
         $request->validate([
             'title' => 'required',
