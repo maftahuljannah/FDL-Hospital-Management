@@ -8,27 +8,34 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+
     function showDepartment($id = null){
-        $editedDepartment = $id ?  Department::find($id) : null;
+        $editDepartment =  $id ? Department::find($id) : null;
         $departments = Department::latest()->simplePaginate(2);
-       return view('backend.admin.department.index', compact('departments','editedDepartment'));
+        return view('backend.admin.department.index', compact('departments','editDepartment'));
     }
 
-
-    function store(Request $request, $id=null){
+    function store(Request $request){
         $request->validate([
             'title' => 'required',
             'description' => 'nullable|max:60'
         ]);
 
-        $department = Department::updateOrCreate([
-            'id' => $id
-        ],$request->all());
-        $msg = $id ? 'Department has been updated!' : 'Department has been added!';
-        //* Success
+        Department::create($request->all());
+
         return back()->with('msg', [
             'type' => 'success',
-            'content' => $msg
+            'content' => 'Department has been added!'
         ]);
     }
+    function update(Request $request, $id){
+
+        Department::find($id)->update($request->all());
+
+        return back()->with('msg', [
+            'type' => 'success',
+            'content' => 'Department has been updated!'
+        ]);
+    }
+
 }

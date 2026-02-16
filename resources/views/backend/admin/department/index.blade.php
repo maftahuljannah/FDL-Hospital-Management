@@ -37,18 +37,18 @@
             </div>
             <div class="col-lg-4">
                 <div class="card">
-                    <div class="card-header">{{ $editedDepartment ? 'Update' : 'Add' }} Department</div>
+                    <div class="card-header">{{ $editDepartment ? 'Update' : 'Add' }} Department</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.department.store', $editedDepartment ? $editedDepartment->id : null) }}">
+                        <form method="POST" action="{{$editDepartment ? route('admin.department.update',$editDepartment->id) : route('admin.department.store') }}">
                             @csrf
                             <div class="my-2">
-                                <input name="title" type="text" placeholder="Department Name" class="form-control" value="{{ $editedDepartment->title ?? null }}">
+                                <input name="title" type="text" placeholder="Department Name" class="form-control" value="{{ $editDepartment->title ?? null }}">
                                 @error('title')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="my-2">
-                                <textarea name="description" class="form-control" placeholder="Department Description">{{ $editedDepartment->description ?? null }}</textarea>
+                                <textarea name="description" class="form-control" placeholder="Department Description">{{ $editDepartment->description ?? null }}</textarea>
                                   @error('description')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
