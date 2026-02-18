@@ -10,4 +10,5 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+require base_path('routes/admin_routes.php');
 

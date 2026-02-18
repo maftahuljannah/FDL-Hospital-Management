@@ -15,6 +15,7 @@
     />
 
     <title>@yield('title', "- Hospital Management")</title>
+   
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('backend/assets/img/favicon/favicon.ico')}}" />
 
@@ -169,7 +170,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="https://api.dicebear.com/9.x/initials/svg?seed={{ auth()->user()->name }}" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="https://api.dicebear.com/9.x/initials/svg?seed={{ auth()->user()->name ?? '' }}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
