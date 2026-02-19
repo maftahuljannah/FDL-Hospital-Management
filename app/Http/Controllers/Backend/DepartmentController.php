@@ -38,15 +38,30 @@ class DepartmentController extends Controller
     {
         Department::find($id)->delete($request->all());
         $msg = $id ? 'Department has been Deleted Successfully' : 'Department added Successfully';
+    function showDepartment($id = null)
+    {
+        $editedDepartment = $id ? Department::find($id) : null;
+        $departments = Department::latest()->paginate(15);
+
+        return view('backend.admin.department.index', 
+            compact('departments', 'editedDepartment')
+        );
+    }
+
+    function deleteDepartment($id)
+    {
+        Department::findOrFail($id)->delete();
+
         return back()->with('msg', [
             'type' => 'success',
-            'content' => $msg
+            'content' => 'Department has been Deleted Successfully'
         ]);
     }
+
     public function status($id)
     {
         $department = Department::findOrFail($id);
-        $department->status = !$department->status; // toggle
+        $department->status = !$department->status;
         $department->save();
 
         return back()->with('msg', [
