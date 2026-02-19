@@ -34,19 +34,6 @@ class DepartmentController extends Controller
             'content' => $msg
         ]);
     }
-    function deleteDepartment(Request $request, $id = null)
-    {
-        Department::find($id)->delete($request->all());
-        $msg = $id ? 'Department has been Deleted Successfully' : 'Department added Successfully';
-    function showDepartment($id = null)
-    {
-        $editedDepartment = $id ? Department::find($id) : null;
-        $departments = Department::latest()->paginate(15);
-
-        return view('backend.admin.department.index', 
-            compact('departments', 'editedDepartment')
-        );
-    }
 
     function deleteDepartment($id)
     {
@@ -58,7 +45,7 @@ class DepartmentController extends Controller
         ]);
     }
 
-    public function status($id)
+     function status($id)
     {
         $department = Department::findOrFail($id);
         $department->status = !$department->status;

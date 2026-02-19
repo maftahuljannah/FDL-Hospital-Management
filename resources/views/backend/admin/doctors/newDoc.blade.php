@@ -105,6 +105,7 @@
                 <!-- Availability Time -->
                 <div style="width:48%;">
                     <label style="font-weight:600;">Availability Time <span class="text-danger">*</span></label>
+                    <input type="date" multiple>
                     <input type="time" name="availability_time"
                            value="{{ old('availability_time', $editedDoctor->availability_time ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
