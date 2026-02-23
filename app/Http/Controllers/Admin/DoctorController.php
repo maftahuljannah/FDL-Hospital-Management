@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
@@ -16,7 +17,9 @@ class DoctorController extends Controller
         
     function addDoc($id = null){
         $editedDoctor = $id ? Doctor::find($id) : null;
-        return view('backend.admin.doctors.newDoc',compact('editedDoctor'));
+        $departments = Department::where('status', true)->latest()->get();
+        
+        return view('backend.admin.doctors.newDoc',compact('editedDoctor', 'departments'));
     }
     function storeDoc(Request $request,$id = null){
     
@@ -34,8 +37,11 @@ class DoctorController extends Controller
     ]);
 
     $id = $id ?? $request->id;
-    $oldPrevImg = Doctor::find($id)->profile_image;
+    $oldPrevImg = Doctor::find($id)?->profile_image;
     $profileImg = $request->hasFile('profile_image') ? $request->profile_image->store('doctors', 'public') : ( $oldPrevImg ?? null);
+    
+    // Available Date
+    $availableDates = $request->available_date ? join(  " ,", $request->available_date ) : null;
     
     // Delete Image
     if($request->hasFile('profile_image') &&  $oldPrevImg){
@@ -54,7 +60,9 @@ class DoctorController extends Controller
         'description' => $request->description,
         'gender' => $request->gender,
         'status' => $request->status,
+        'department_id' => $request->department_id,
         'availability_time' => $request->availability_time,
+        'availability_date' => $availableDates,
         'joining_date' => $request->joining_date,
     ]);
     $msg = $id ? 'Doctor Information has been Updated Successfully!!!' : 'Doctor Added Successfully!!!';

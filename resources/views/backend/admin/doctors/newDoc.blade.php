@@ -63,7 +63,7 @@
                 </div>
 
                 <!-- Gender -->
-                <div style="width:48%;">
+                <div style="width:30%;">
                     <label style="font-weight:600;">Gender <span class="text-danger">*</span></label>
                     <select name="gender"
                             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
@@ -76,9 +76,22 @@
                     <span class="text-danger fw-bold">{{ $message }}</span>
                     @enderror
                 </div>
-
+  <!-- Status -->
+                <div style="width:40%;">
+                    <label style="font-weight:600;">Department <span class="text-danger">*</span></label>
+                    <select name="department_id" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
+                       @forelse ($departments as $department)
+                           <option value="{{ $department->id }}">{{ $department->title }}</option>
+                       @empty
+                           <option selected disabled>No Departments found!</option>
+                       @endforelse
+                    </select>
+                    @error('status')
+                    <span class="text-danger fw-bold">{{ $message }}</span>
+                    @enderror
+                </div>
                 <!-- Status -->
-                <div style="width:48%;">
+                <div style="width:20%;">
                     <label style="font-weight:600;">Status <span class="text-danger">*</span></label>
                     <select name="status"
                             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
@@ -105,10 +118,23 @@
                 <!-- Availability Time -->
                 <div style="width:48%;">
                     <label style="font-weight:600;">Availability Time <span class="text-danger">*</span></label>
-                    <input type="date" multiple>
                     <input type="time" name="availability_time"
                            value="{{ old('availability_time', $editedDoctor->availability_time ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
+                    @error('availability_time')
+                    <span class="text-danger fw-bold">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div>
+                    <label style="font-weight:600;" class="d-block">Availability Date <span class="text-danger">*</span></label>
+                    <label><input type="checkbox" name="available_date[]" value="sat"> Sat Day</label>
+                    <label><input type="checkbox" name="available_date[]" value="sun"> Sun Day</label>
+                    <label><input type="checkbox" name="available_date[]" value="mon"> Mon Day</label>
+                    <label><input type="checkbox" name="available_date[]" value="tues"> Tues Day</label>
+                    <label><input type="checkbox" name="available_date[]" value="wed"> Wed Day</label>
+                    <label><input type="checkbox" name="available_date[]" value="thus"> Thus Day</label>
+                    <label><input type="checkbox" name="available_date[]" value="fri"> Fri Day</label>
                     @error('availability_time')
                     <span class="text-danger fw-bold">{{ $message }}</span>
                     @enderror
