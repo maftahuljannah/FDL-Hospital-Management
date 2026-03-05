@@ -53,6 +53,7 @@ class DoctorController extends Controller
     Doctor::updateOrCreate([
         'id' => $id
     ],[
+        'department_id' => $request->department_id,
         'profile_image' => $profileImg,
         'title' => $request->title,
         'name' => $request->name,
@@ -60,7 +61,6 @@ class DoctorController extends Controller
         'description' => $request->description,
         'gender' => $request->gender,
         'status' => $request->status,
-        'department_id' => $request->department_id,
         'availability_time' => $request->availability_time,
         'availability_date' => $availableDates,
         'joining_date' => $request->joining_date,

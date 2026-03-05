@@ -81,7 +81,7 @@
                     <label style="font-weight:600;">Department <span class="text-danger">*</span></label>
                     <select name="department_id" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
                        @forelse ($departments as $department)
-                           <option value="{{ $department->id }}">{{ $department->title }}</option>
+                           <option {{ $editedDoctor?->department_id == $department->id ? "selected" : '' }} value="{{ $department->id }}">{{ $department->title }}</option>
                        @empty
                            <option selected disabled>No Departments found!</option>
                        @endforelse
@@ -127,14 +127,24 @@
                 </div>
 
                 <div>
+                    @php
+                        $daysArray = [
+                            "sat",
+                            "sun",
+                            "mon",
+                            "tue",
+                            "wed",
+                            "thus",
+                            "fri",
+                    ];
+                    $previousDate = explode(' ,' , $editedDoctor->availability_date ?? '');
+                    @endphp
+                   
                     <label style="font-weight:600;" class="d-block">Availability Date <span class="text-danger">*</span></label>
-                    <label><input type="checkbox" name="available_date[]" value="sat"> Sat Day</label>
-                    <label><input type="checkbox" name="available_date[]" value="sun"> Sun Day</label>
-                    <label><input type="checkbox" name="available_date[]" value="mon"> Mon Day</label>
-                    <label><input type="checkbox" name="available_date[]" value="tues"> Tues Day</label>
-                    <label><input type="checkbox" name="available_date[]" value="wed"> Wed Day</label>
-                    <label><input type="checkbox" name="available_date[]" value="thus"> Thus Day</label>
-                    <label><input type="checkbox" name="available_date[]" value="fri"> Fri Day</label>
+                    @foreach ($daysArray as $day)
+                    <label><input {{ in_array($day, $previousDate) ? 'checked' : null }} type="checkbox" name="available_date[]" value="{{ $day }}"><span class="text-capitalize">{{ $day }}</span> Day</label>
+                    @endforeach
+                   
                     @error('availability_time')
                     <span class="text-danger fw-bold">{{ $message }}</span>
                     @enderror
