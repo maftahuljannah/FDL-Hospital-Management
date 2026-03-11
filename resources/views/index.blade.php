@@ -131,86 +131,18 @@
                     <p>Explore a Wide Range of Specialities</p>
                 </div>
                 <div class="departments-slider lazy">
+                    @foreach($departments as $department)
                     <div data-aos="flip-left">
                         <div class="departments-item border rounded-4 p-3 text-center">
                             <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
                                 <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-01.svg') }}"
                                     alt="img">
                             </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Cardiology</a></h6>
-                            <p class="fs-14 text-truncate">20 Doctors Available</p>
+                            <h6 class="mb-1"><a href="javascript:void(0);">{{ $department->title }}</a></h6>
+                            <p class="fs-14 text-truncate">{{ $department->doctors_count }} Doctors Available</p>
                         </div>
                     </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-02.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Dental Care</a></h6>
-                            <p class="fs-14 text-truncate">15 Doctors Available</p>
-                        </div>
-                    </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-03.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Neurology</a></h6>
-                            <p class="fs-14 text-truncate">12 Doctors Available</p>
-                        </div>
-                    </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-04.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Gynecology</a></h6>
-                            <p class="fs-14 text-truncate">10 Doctors Available</p>
-                        </div>
-                    </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-05.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Oncology</a></h6>
-                            <p class="fs-14 text-truncate">17 Doctors Available</p>
-                        </div>
-                    </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-06.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Urology</a></h6>
-                            <p class="fs-14 text-truncate">14 Doctors Available</p>
-                        </div>
-                    </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-04.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Gynecology</a></h6>
-                            <p class="fs-14 text-truncate">10 Doctors Available</p>
-                        </div>
-                    </div>
-                    <div data-aos="flip-left">
-                        <div class="departments-item border rounded-4 p-3 text-center">
-                            <span class="avatar avatar-xl rounded-pill bg-light d-inline-flex mb-3">
-                                <img class="mx-auto w-auto h-auto" src="{{ asset('frontend/assets/images/icon-05.svg') }}"
-                                    alt="img">
-                            </span>
-                            <h6 class="mb-1"><a href="javascript:void(0);">Oncology</a></h6>
-                            <p class="fs-14 text-truncate">17 Doctors Available</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

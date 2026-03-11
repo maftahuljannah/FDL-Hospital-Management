@@ -19,4 +19,8 @@ class Doctor extends Model
         'joining_date',
         'profile_image'
     ];
+
+    function department(){
+        return $this->belongsTo(Department::class);
+    }
 }
