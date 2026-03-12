@@ -20,10 +20,10 @@
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{{ asset('backend/assets/img/favicon/favicon.ico" />') }}q
+  <link rel="icon" type="image/x-icon" href="{{ asset('backend/assets/img/favicon/favicon.ico') }}" />
 
     <!-- Fonts -->
-    <link rel=" preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
@@ -62,7 +62,6 @@
 
         <ul class="menu-inner py-1">
           @include('layouts.partials.BackendSidebar')
-
         </ul>
       </aside>
       <!-- / Menu -->
@@ -250,9 +249,8 @@
       /* ensures toast is on top of navbar/search */
     }
   </style>
-  @stack('scripts')
 
-
+    @stack('scripts')
 
 </body>
 
