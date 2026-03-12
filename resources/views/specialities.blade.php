@@ -26,7 +26,7 @@
                     <div class="d-flex align-items-center justify-content-between mb-40 flex-wrap gap-3">
                         <div class="d-flex align-items-center">
                             <h3 class="me-3">Total Specialities</h3>
-                            <span class="badge badge-soft-primary border border-primary">Total Specialities : 565</span>
+                            <span class="badge badge-soft-primary border border-primary">Total Specialities : {{ $departmentCount }}</span>
                         </div>
                         <div class="d-flex align-items-center flex-wrap gap-2">
                             <div class="dropdown">
@@ -114,269 +114,34 @@
 
                     <!-- start row -->
                     <div class="row justify-content-center departments-section">
-
-                        <div class="col-md-4 col-lg-3">
+                        @forelse ($departments as $department)
+                             <div class="col-md-4 col-lg-3">
                             <div class="department-item">
                                 <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-01.jpg') }}" alt="img" class="img-fluid">
+                                    <img src="{{ getImg(null) }}" alt="img" class="img-fluid">
                                 </div>
                                 <div class="department-item-content">
                                     <div>
-                                        <h6><a href="javascript:void(0);">Cardiologist</a></h6>
-                                        <p>Available Doctors : 50</p>
+                                        <h6><a href="{{ route('doctors') }}?department={{ $department->id }}">{{ $department->title }}</a></h6>
+                                        <p>Available Doctors : {{ $department->doctors_count }}</p>
                                     </div>
                                     <a href="javascript:void(0);" class="department-item-btn"><i
                                             class="ti ti-arrow-up-right"></i></a>
                                 </div>
                             </div><!-- end card -->
                         </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-02.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Pediatrics</a></h6>
-                                        <p>Available Doctors : 60</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-03.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Gynaecology</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-04.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Neurologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-05.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Pulmonologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-06.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Endocrinologist</a></h6>
-                                        <p>Available Doctors : 60</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-07.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Oncologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-08.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Otolaryngologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-09.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Geriatrician</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-10.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Gastroenterologist</a></h6>
-                                        <p>Available Doctors : 60</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-11.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Rheumatologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-12.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Neurosurgeon</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-13.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Dermatologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-14.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Radiologist</a></h6>
-                                        <p>Available Doctors : 60</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-15.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Neonatologist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-md-4 col-lg-3">
-                            <div class="department-item">
-                                <div class="department-item-img">
-                                    <img src="{{ asset('frontend/assets/images/department-img-16.jpg') }}" alt="img" class="img-fluid">
-                                </div>
-                                <div class="department-item-content">
-                                    <div>
-                                        <h6><a href="javascript:void(0);">Psychiatrist</a></h6>
-                                        <p>Available Doctors : 50</p>
-                                    </div>
-                                    <a href="javascript:void(0);" class="department-item-btn"><i
-                                            class="ti ti-arrow-up-right"></i></a>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-lg-12">
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a href="javascript:void(0);" class="btn btn-primary d-inline-flex align-items-center">View
-                                    All Doctors<i class="ti ti-chevron-right ms-1"></i></a>
+                        @empty
+                             <div class="col-lg-12">
+                            <div class="d-flex align-items-center text-center justify-content-center">
+                                <b>No Departments found!</b>
                             </div>
                         </div>
+                        @endforelse
+                        
+                        {{-- Pagination --}}
+                        <nav>{{ $departments->links() }}</nav>
+                       
+                       
 
                     </div>
                     <!-- end row -->

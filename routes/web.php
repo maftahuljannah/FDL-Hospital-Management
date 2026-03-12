@@ -8,13 +8,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class,'homepage'])->name('index');
 
-Route::get('/specialities', function () {
-    return view('specialities');
-})->name('specialities');
+Route::get('/specialities', [HomeController::class, 'showDepartment'])->name('specialities');
 
-Route::get('/doctors', function () {
-    return view('doctors');
-})->name('doctors');
+Route::get('/doctors', [HomeController::class, 'showDoctorList'])->name('doctors');
 
 Route::get('/doctor-details', function () {
     return view('doctor-details');

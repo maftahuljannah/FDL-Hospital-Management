@@ -50,8 +50,8 @@
                     <a id="menu_close" class="menu-close" href="#"> <i class="fas fa-times"></i></a>
                 </div>
                 <ul class="main-nav navbar-nav" id="scroll-nav">
-                    <li class="nav-item"><a href="{{ route('index') }}" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="{{ route('specialities') }}" class="nav-link">Specialities</a></li>
+                    <li class="nav-item"><a href="{{ route('index') }}" class="nav-link {{ getActiveLink('index') }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ route('specialities') }}" class="nav-link {{ getActiveLink('specialities') }}">Specialities</a></li>
                     <li class="nav-item"><a href="{{ route('doctors') }}" class="nav-link">Doctors</a></li>
                     <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
                     <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
