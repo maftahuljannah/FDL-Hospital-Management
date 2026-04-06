@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     function homepage(){
-        $departments = Department::where('featured' ,true)->latest()->withCount('doctors')->take(12)->get();
-        return view('index', compact('departments'));
+        $departments = Department::where('status' ,true)->latest()->withCount('doctors')->get();
+        $doctors = Doctor::where('status', true)->latest()->select('id', 'name')->take(15)->get();
+        return view('index', compact('departments', 'doctors'));
     }
 
     function showDepartment(){
@@ -33,5 +34,15 @@ class HomeController extends Controller
 
         
         return view('doctors', compact('doctors'));
+    }
+
+
+    function showDoctorsAjaxList(Request $request){
+        if($request->docId){
+            $doctors = Doctor::where('id', $request->docId)->where('status', true)->select('id','department_id', 'name','status','availability_date','availability_time')->first();
+        } else{
+            $doctors = Doctor::where('department_id', $request->dept_id)->where('status', true)->select('id','department_id', 'name','status','availability_date','availability_time')->get();
+        }
+        return response()->json($doctors);
     }
 }

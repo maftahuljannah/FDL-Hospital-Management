@@ -52,8 +52,7 @@
     @yield('body')
     <!-- jQuery -->
     <script data-cfasync="false" src="{{ asset('frontend/assets/js/email-decode.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/js/jquery-3.7.1.min.js') }}"
-        type="64ee54b8d26a017d654c3164-text/javascript"></script>
+    <script src="{{ asset('frontend/assets/js/jquery-3.7.1.min.js') }}"></script>
 
     <!-- Bootstrap Core JS -->
     <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"
@@ -66,12 +65,12 @@
 
     <!-- Slick Slider -->
     <script src="{{ asset('frontend/assets/js/slick.js') }}" type="64ee54b8d26a017d654c3164-text/javascript"></script>
-    <script src="{{ asset('frontend/assets/js/slick.min.js') }}"
-        type="64ee54b8d26a017d654c3164-text/javascript"></script>
+    <script src="{{ asset('frontend/assets/js/slick.min.js') }}" type="64ee54b8d26a017d654c3164-text/javascript">
+    </script>
 
     <!-- counterup JS -->
-    <script src="{{ asset('frontend/assets/js/jquery.waypoints.js') }}"
-        type="64ee54b8d26a017d654c3164-text/javascript"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.waypoints.js') }}" type="64ee54b8d26a017d654c3164-text/javascript">
+    </script>
     <script src="{{ asset('frontend/assets/js/jquery.counterup.min.js') }}"
         type="64ee54b8d26a017d654c3164-text/javascript"></script>
 
@@ -81,20 +80,21 @@
 
     <!-- Datetimepicker JS -->
     <script src="{{ asset('frontend/assets/js/moment.js') }}" type="64ee54b8d26a017d654c3164-text/javascript"></script>
-    <script src="{{ asset('frontend/assets/js/moment.min.js') }}"
-        type="64ee54b8d26a017d654c3164-text/javascript"></script>
+    <script src="{{ asset('frontend/assets/js/moment.min.js') }}" type="64ee54b8d26a017d654c3164-text/javascript">
+    </script>
     <script src="{{ asset('frontend/assets/js/bootstrap-datetimepicker.min.js') }}"
         type="64ee54b8d26a017d654c3164-text/javascript"></script>
 
     <!-- Select2 JS -->
-    <script src="{{ asset('frontend/assets/js/select2.min.js') }}"
-        type="64ee54b8d26a017d654c3164-text/javascript"></script>
+    <script src="{{ asset('frontend/assets/js/select2.min.js') }}" type="64ee54b8d26a017d654c3164-text/javascript">
+    </script>
 
     <!-- Custom JS -->
     <script src="{{ asset('frontend/assets/js/script.js') }}" type="64ee54b8d26a017d654c3164-text/javascript"></script>
     @stack('js')
     <script src="{{ asset('frontend/assets/js/rocket-loader.min.js') }}" data-cf-settings="64ee54b8d26a017d654c3164-|49"
         defer></script>
+
 
 </body>
 

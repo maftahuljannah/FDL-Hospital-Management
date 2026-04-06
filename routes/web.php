@@ -11,6 +11,10 @@ Route::get('/', [HomeController::class,'homepage'])->name('index');
 Route::get('/specialities', [HomeController::class, 'showDepartment'])->name('specialities');
 
 Route::get('/doctors', [HomeController::class, 'showDoctorList'])->name('doctors');
+Route::get('/doctors-ajax', [HomeController::class, 'showDoctorsAjaxList'])->name('doctors.ajax');
+
+
+
 
 Route::get('/doctor-details', function () {
     return view('doctor-details');
