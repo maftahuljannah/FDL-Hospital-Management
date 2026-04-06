@@ -38,8 +38,7 @@
             <td>{{ ++$key }}</td>
             <td>EMP-{{ $key }}</td>
             <td>
-              <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Brian"
-                   alt="avatar"
+              <img src="{{ getImg($doctor->profile_image) }}" alt="{{ $doctor->name }}"
                    class="rounded-circle"
                    width="50" height="50">
             </td>
