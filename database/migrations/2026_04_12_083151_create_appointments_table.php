@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('department_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('doctor_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('name');
-            $table->string('phone');
+            $table->foreignId('customer_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->date('date');
             $table->string('time');
             $table->boolean('status')->default(false);
-            $table->string('email')->nullable();
             $table->mediumText('comment')->nullable();
             $table->timestamps();
         });

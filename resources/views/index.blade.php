@@ -41,13 +41,14 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <form>
+                    <form method="POST" action="{{ route('appointment.store') }}">
+                        @csrf
                         <div class="appointment-form text-start rounded-4 border shadow-sm bg-white">
                             <h5 class="mb-4">Appointment Form</h5>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Department<span class="text-danger ms-1">*</span></label>
-                                    <select id="department" class="select form-control">
+                                    <select id="department" class="select form-control" name="department">
                                         <option disabled selected>Select a Department</option>
                                         @foreach($departments as $department)
                                         <option value="{{ $department->id }}">{{ $department->title }}</option>
@@ -57,7 +58,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Doctors<span class="text-danger ms-1">*</span></label>
-                                    <select id="doctor" class="select form-control">
+                                    <select id="doctor" class="select form-control" name="doctor">
                                         <option disabled selected>Select a Doctor</option>
                                         @foreach($doctors as $doctor)
                                         <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
@@ -68,7 +69,7 @@
                                     <label class="form-label">Date<span class="text-danger ms-1">*</span></label>
                                     <div class="input-group position-relative mb-3" >
                                         <input type="text" class="form-control datetimepicker rounded-end"
-                                            placeholder="25 Mar 2025">
+                                            placeholder="25 Mar 2025" name="date">
                                         <span class="input-icon-addon fs-16 text-gray-9">
                                             <i class="ti ti-calendar"></i>
                                         </span>
@@ -78,7 +79,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Time<span class="text-danger ms-1">*</span></label>
                                     <div class="input-icon-end position-relative" >
-                                        <input type="text" class="form-control timepicker" placeholder="-- : --  --">
+                                        <input type="text" class="form-control timepicker" placeholder="-- : --  --" name="time">
                                         <span class="input-icon-addon">
                                             <i class="ti ti-clock text-gray-9"></i>
                                         </span>
@@ -99,7 +100,7 @@
                                 </div>
                                 <div class="col-md-12 mb-4">
                                     <label class="form-label">Comments<span class="text-danger ms-1">*</span></label>
-                                    <textarea class="form-control" placeholder="Description"></textarea>
+                                    <textarea class="form-control" placeholder="Description" name="comment"></textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-dark btn-md w-100">Book an

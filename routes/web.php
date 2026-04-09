@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,9 @@ Route::get('/specialities', [HomeController::class, 'showDepartment'])->name('sp
 Route::get('/doctors', [HomeController::class, 'showDoctorList'])->name('doctors');
 Route::get('/doctors-ajax', [HomeController::class, 'showDoctorsAjaxList'])->name('doctors.ajax');
 
+
+// Appointment
+Route::post('/store-appointment', [AppointmentController::class, 'storeAppointment'])->name('appointment.store');
 
 
 
