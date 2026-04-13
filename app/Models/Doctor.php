@@ -13,8 +13,14 @@ class Doctor extends Model
         'description',
         'gender',
         'status',
+        'department_id',
+        'availability_date',
         'availability_time',
         'joining_date',
         'profile_image'
     ];
+
+    function department(){
+        return $this->belongsTo(Department::class);
+    }
 }

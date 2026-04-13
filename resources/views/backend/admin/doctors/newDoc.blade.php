@@ -63,7 +63,7 @@
                 </div>
 
                 <!-- Gender -->
-                <div style="width:48%;">
+                <div style="width:30%;">
                     <label style="font-weight:600;">Gender <span class="text-danger">*</span></label>
                     <select name="gender"
                             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
@@ -76,9 +76,22 @@
                     <span class="text-danger fw-bold">{{ $message }}</span>
                     @enderror
                 </div>
-
+  <!-- Status -->
+                <div style="width:40%;">
+                    <label style="font-weight:600;">Department <span class="text-danger">*</span></label>
+                    <select name="department_id" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
+                       @forelse ($departments as $department)
+                           <option {{ $editedDoctor?->department_id == $department->id ? "selected" : '' }} value="{{ $department->id }}">{{ $department->title }}</option>
+                       @empty
+                           <option selected disabled>No Departments found!</option>
+                       @endforelse
+                    </select>
+                    @error('status')
+                    <span class="text-danger fw-bold">{{ $message }}</span>
+                    @enderror
+                </div>
                 <!-- Status -->
-                <div style="width:48%;">
+                <div style="width:20%;">
                     <label style="font-weight:600;">Status <span class="text-danger">*</span></label>
                     <select name="status"
                             style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
@@ -108,6 +121,30 @@
                     <input type="time" name="availability_time"
                            value="{{ old('availability_time', $editedDoctor->availability_time ?? null) }}"
                            style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
+                    @error('availability_time')
+                    <span class="text-danger fw-bold">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div>
+                    @php
+                        $daysArray = [
+                            "sat",
+                            "sun",
+                            "mon",
+                            "tue",
+                            "wed",
+                            "thus",
+                            "fri",
+                    ];
+                    $previousDate = explode(' ,' , $editedDoctor->availability_date ?? '');
+                    @endphp
+                   
+                    <label style="font-weight:600;" class="d-block">Availability Date <span class="text-danger">*</span></label>
+                    @foreach ($daysArray as $day)
+                    <label><input {{ in_array($day, $previousDate) ? 'checked' : null }} type="checkbox" name="available_date[]" value="{{ $day }}"><span class="text-capitalize">{{ $day }}</span> Day</label>
+                    @endforeach
+                   
                     @error('availability_time')
                     <span class="text-danger fw-bold">{{ $message }}</span>
                     @enderror

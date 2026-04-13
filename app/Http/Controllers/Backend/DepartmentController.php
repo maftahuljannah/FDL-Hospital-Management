@@ -34,19 +34,21 @@ class DepartmentController extends Controller
             'content' => $msg
         ]);
     }
-    function deleteDepartment(Request $request, $id = null)
+
+    function deleteDepartment($id)
     {
-        Department::find($id)->delete($request->all());
-        $msg = $id ? 'Department has been Deleted Successfully' : 'Department added Successfully';
+        Department::findOrFail($id)->delete();
+
         return back()->with('msg', [
             'type' => 'success',
-            'content' => $msg
+            'content' => 'Department has been Deleted Successfully'
         ]);
     }
-    public function status($id)
+
+     function status($id)
     {
         $department = Department::findOrFail($id);
-        $department->status = !$department->status; // toggle
+        $department->status = !$department->status;
         $department->save();
 
         return back()->with('msg', [
