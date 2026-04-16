@@ -6,7 +6,8 @@
     <div class="col-lg-6 col-md-12 col-sm-12">
         <div class="row justify-content-center align-items-center overflow-auto flex-wrap vh-100">
             <div class="col-md-8 mx-auto">
-                <form action="" class="d-flex justify-content-center align-items-center">
+                <form action="{{ route('signin.confirm') }}" method="POST" class="d-flex justify-content-center align-items-center">
+                    @csrf
                     <div class="d-flex flex-column justify-content-lg-center p-4 p-lg-0 pb-0 flex-fill">
                         <div class=" mx-auto mb-4 text-center">
                             <a href="{{ route('index') }}"><img src="{{ asset('frontend/assets/images/logo.svg') }}"
@@ -20,13 +21,13 @@
                                     </p>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Email Address</label>
+                                    <label class="form-label">Phone</label>
                                     <div class="input-group">
                                         <span class="input-group-text border-end-0 bg-white">
                                             <i class="ti ti-mail fs-14 text-dark"></i>
                                         </span>
                                         <input type="text" value="" class="form-control border-start-0 ps-0"
-                                            placeholder="Enter Email Address">
+                                            placeholder="Enter Phone" name="phone">
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -37,7 +38,7 @@
                                                 <i class="ti ti-lock text-dark fs-14"></i>
                                             </span>
                                             <input type="password" class="pass-input form-control ps-0 border-0"
-                                                placeholder="****************">
+                                                placeholder="****************" name="password">
                                             <span class="input-group-text bg-white border-0 cursor-pointer">
                                                 <i class="ti toggle-password ti-eye-off text-dark fs-14"></i>
                                             </span>
