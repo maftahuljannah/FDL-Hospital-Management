@@ -30,6 +30,8 @@ Route::get('/doctor-details', function () {
 Route::get('/sign-in',[CustomerAuthController::class, 'showLoginForm'])->name('signin');
 Route::post('/sign-in',[CustomerAuthController::class, 'login'])->name('signin.confirm');
 Route::get('/sign-up', [CustomerAuthController::class, 'showRegisterForm'])->name('signup');
+Route::get('/google/login',[CustomerAuthController::class, 'googleLogin'])->name('signin.google');
+Route::get('/google-callback',[CustomerAuthController::class, 'googleCallback'])->name('signin.google.callback');
 
 Auth::routes();
 

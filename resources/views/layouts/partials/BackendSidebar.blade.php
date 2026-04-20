@@ -29,3 +29,11 @@
         <div>Staff</div>
     </a>
 </li>
+
+<!-- Reports -->
+<li class="menu-item {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}">
+    <a href="{{ route('admin.reports.index') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-group"></i>
+        <div>Reports</div>
+    </a>
+</li>

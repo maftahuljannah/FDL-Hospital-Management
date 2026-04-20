@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Backend\DepartmentController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', [AdminDashboardController::class,'dashboard'])->name('dashboard')->middleware('auth');
@@ -27,3 +28,11 @@ Route::get('/staff', [StaffController::class, 'staff'])->name('staff');
 Route::get('/staff/addstaff/{id?}', [StaffController::class, 'addStaff'])->name('staff.addstaff');
 Route::post('/staff/addstaff/store/{id?}', [StaffController::class, 'storeStaff'])->name('staff.store');
 Route::get('/staff/delete/{id}', [StaffController::class, 'deleteStaff'])->name('staff.delete');
+
+
+//Reports
+Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');
+Route::post('/reports/store/{id?}', [ReportController::class, 'store'])->name('reports.store');
+
+Route::get('/reports/edit/{id}', [ReportController::class, 'edit'])->name('reports.edit');

@@ -75,7 +75,7 @@
                                             </a>
                                         </div>
                                         <div class="text-center me-2 flex-fill">
-                                            <a href="javascript:void(0);"
+                                            <a href="{{ route('signin.google') }}"
                                                 class="br-10 p-1 btn btn-outline-light border d-flex align-items-center justify-content-center">
                                                 <img class="img-fluid m-1"
                                                     src="{{ asset('frontend/assets/images/google-logo.svg') }}"

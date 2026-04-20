@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Authenticatable
 {
     protected $guarded = ['id'];
+
+
+    function reports (){
+        return $this->hasMany(Report::class);
+    }
 }
