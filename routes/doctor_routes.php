@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\LeaveController;
 
 Route::get('/', function () {
     return view('backend.doctor.login');
@@ -25,3 +27,12 @@ Route::get('/patients', function () {
 Route::get('/leave', function () {
     return view('backend.doctor.leave');
 })->name('leave');
+
+//Calender Routes
+Route::get('/calendar/events', [AppointmentController::class, 'calendarEvents']);
+Route::post('/calendar/store', [AppointmentController::class, 'storeFromCalendar']);
+Route::post('/calendar/update/{id}', [AppointmentController::class, 'updateFromCalendar']);
+Route::delete('/calendar/delete/{id}', [AppointmentController::class, 'deleteFromCalendar']);
+
+//Leave Route Store
+Route::post('/leave/store', [LeaveController::class, 'store']);

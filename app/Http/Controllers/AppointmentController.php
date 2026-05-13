@@ -76,4 +76,59 @@ Please log in to manage your appointments.";
 
     //     return $response->json();
     // }
+
+
+
+    public function calendarEvents()
+    {
+        $appointments = Appointment::all();
+
+        $events = [];
+
+        foreach ($appointments as $app) {
+
+            $events[] = [
+                'id' => $app->id,
+                'title' => $app->comment ?? 'Appointment',
+                'start' => $app->date . 'T' . $app->time,
+            ];
+        }
+
+        return response()->json($events);
+    }
+
+    public function storeFromCalendar(Request $request)
+    {
+        $appointment = Appointment::create([
+            'doctor_id' => $request->doctor_id,
+            'customer_id' => $request->customer_id ?? 1,
+            'date' => $request->date,
+            'time' => $request->time,
+            'comment' => $request->comment,
+            'status' => 0
+        ]);
+
+        return response()->json($appointment);
+    }
+
+    public function updateFromCalendar(Request $request, $id)
+    {
+        $app = Appointment::find($id);
+
+        $app->update([
+            'date' => $request->date,
+            'time' => $request->time,
+            'comment' => $request->comment
+        ]);
+
+        return response()->json($app);
+    }
+
+    public function deleteFromCalendar($id)
+    {
+        Appointment::find($id)->delete();
+
+        return response()->json(['success' => true]);
+    }
 }
+
